@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
         {
             //print(wayPoint.name);
             transform.position = wayPoint.transform.position;
-            print(transform.position.x + "," + transform.position.z);
+            print(transform.position.x + "," + transform.position.z); 
             yield return new WaitForSeconds(1f);
         }
         print("End Patrol");
