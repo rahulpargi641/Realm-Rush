@@ -11,11 +11,9 @@ public class CubeEditor : MonoBehaviour
     WayPoint wayPoint;
     void Awake()
     {
-        Debug.Log("Editor causes this Awake");
+        // Debug.Log("Editor causes this Awake");
         wayPoint = GetComponent<WayPoint>();
     }
-
-    
 
     void Update()
     {
@@ -25,18 +23,15 @@ public class CubeEditor : MonoBehaviour
     }
 
      void SnapToGrid()
-    {
+     {
         int gridSize = wayPoint.GetGridSize();
 
-        
-        transform.position = new Vector3(Mathf.RoundToInt(wayPoint.GetGridPos().x * gridSize), 0, Mathf.RoundToInt(wayPoint.GetGridPos().y * gridSize));
+        transform.position = new Vector3(wayPoint.GetGridPos().x * gridSize, 0, wayPoint.GetGridPos().y * gridSize);
       
-    }
+     }
 
     void UpdateLabel()
     {
-        
-
         TextMesh textMesh = GetComponentInChildren<TextMesh>();
         string label = wayPoint.GetGridPos().x + "," + wayPoint.GetGridPos().y;
 

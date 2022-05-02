@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class WayPoint : MonoBehaviour
 {
+    [SerializeField] Color exploredColor;
+    // Public ok as is a data class 
+    public bool isExplored = false;
+    public WayPoint exploredFrom;
+
     Vector2Int gridPos;
     const int gridSize = 10; // we don't wanna individual block size
     // Start is called before the first frame update
@@ -11,6 +16,8 @@ public class WayPoint : MonoBehaviour
     {
         return gridSize;
     }
+
+    // HomeWork - setting own color in Update()
 
     public Vector2Int GetGridPos()
     {
@@ -23,7 +30,7 @@ public class WayPoint : MonoBehaviour
     {
         MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
         topMeshRenderer.material.color = color;
-        // Searvhing for children name top
+        // Searching for children name top
     }    
     // Update is called once per frame
     void Update()
