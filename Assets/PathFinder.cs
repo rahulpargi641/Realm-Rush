@@ -43,7 +43,7 @@ public class PathFinder : MonoBehaviour
         }
         path.Add(startWayPoint);
         path.Reverse();
-        print(path);
+       // print(path);
         // add start waypoint
         // reverse the list
     }
@@ -67,7 +67,7 @@ public class PathFinder : MonoBehaviour
 
             }
         }
-        print("Loaded" + grid.Count + "Blocks");
+       // print("Loaded" + grid.Count + "Blocks");
 
     }
     void BreathFirstSearch()
@@ -102,7 +102,7 @@ public class PathFinder : MonoBehaviour
         foreach(Vector2Int direction in directions)
         {
             Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
-            print("print" + neighbourCoordinates);
+          //  print("print" + neighbourCoordinates);
            /* try
             {
                 QueueNewNeighbours(neighbourCoordinates);
@@ -131,7 +131,7 @@ public class PathFinder : MonoBehaviour
         {
             queue.Enqueue(neighbour);
             neighbour.exploredFrom = searchCenter;
-            print("Queueing " + neighbour);
+           // print("Queueing " + neighbour);
         }
        
     }

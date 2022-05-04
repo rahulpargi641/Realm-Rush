@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
             //print(wayPoint.name);
             transform.position = wayPoint.transform.position;
             // print(transform.position.x + "," + transform.position.z);   // to know about coroutine
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
         }
         print("End Patrol");
     } 
