@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    [SerializeField] Collider collider ;
+    [SerializeField] Collider collider;
     [SerializeField] int hitPoints = 10;
 
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class EnemyDamage : MonoBehaviour
     {
         print("I'm Hit");
         ProcessHit();
-        if (hitPoints <= 1)
+        if (hitPoints <= 0)
         {
             KillEnemy();
         }
