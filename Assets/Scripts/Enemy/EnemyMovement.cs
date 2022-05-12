@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
             // print(transform.position.x + "," + transform.position.z);   // to know about coroutine
             yield return new WaitForSeconds(2f);
         }
-        print("End Patrol");
+        print("End Patrol");  
     } 
 
     // Update is called once per frame

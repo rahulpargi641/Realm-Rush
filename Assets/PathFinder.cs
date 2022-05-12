@@ -22,12 +22,21 @@ public class PathFinder : MonoBehaviour
 
     public List<WayPoint> GetPath()
     {
+        if(path.Count==0)
+        {
+            CalculatePath();
+        }
+        return path;
+    }
+
+    private void CalculatePath()
+    {
         LoadBlocks();
         ColorStartAndEnd();
         BreathFirstSearch();
         CreatePath();
-        return path;
     }
+
     // Start is called before the first frame update
 
     private void CreatePath()
