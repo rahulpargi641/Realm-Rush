@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -36,11 +36,11 @@ public class Tower : MonoBehaviour
     private void SetTargetEnemy()
     {
         var sceneEnemies = FindObjectsOfType<EnemyDamage>();
-        if(sceneEnemies.Length==0) { return; }
+        if (sceneEnemies.Length == 0) { return; }
 
         Transform closestEnemy = sceneEnemies[0].transform;
 
-        foreach(EnemyDamage testEnemy in sceneEnemies)
+        foreach (EnemyDamage testEnemy in sceneEnemies)
         {
             closestEnemy = GetClosestEnemy(closestEnemy, testEnemy.transform);
         }
@@ -62,7 +62,7 @@ public class Tower : MonoBehaviour
     }
 
     void FireAtEnemy()
-    { 
+    {
         float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, gameObject.transform.position);
         if (distanceToEnemy <= attackRange)
         {
@@ -77,10 +77,11 @@ public class Tower : MonoBehaviour
 
 
     }
- 
+
     private void Shoot(bool isActive)
     {
         var emissionModule = projectileParticle.emission;
-        emissionModule.enabled = isActive; 
+        emissionModule.enabled = isActive;
     }
+
 }

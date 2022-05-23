@@ -8,6 +8,7 @@ public class WayPoint : MonoBehaviour
     // Public ok as is a data class 
     public bool isExplored = false;
     public WayPoint exploredFrom;
+    public bool isPlacable = true;
 
     Vector2Int gridPos;
     const int gridSize = 10; // we don't wanna individual block size
@@ -36,5 +37,24 @@ public class WayPoint : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isPlacable)
+            {
+                print(gameObject.name + " Tower Placement");
+            }
+            else
+            {
+                print("Can't place it here");
+            }
+            
+        }        
+
+
+       
     }
 }
