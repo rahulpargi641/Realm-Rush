@@ -12,12 +12,7 @@ public class Tower : MonoBehaviour
 
     // State of each tower
     [SerializeField] Transform targetEnemy;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +20,7 @@ public class Tower : MonoBehaviour
         if (targetEnemy)
         {
             objectToPan.LookAt(targetEnemy);
-            FireAtEnemy();
+            FireAtEnemy();  
         }
         else
         {
@@ -73,9 +68,6 @@ public class Tower : MonoBehaviour
         {
             Shoot(false);
         }
-
-
-
     }
 
     private void Shoot(bool isActive)

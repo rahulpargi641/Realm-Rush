@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] List<WayPoint> path; // todo remove
    
     // Start is called before the first frame update
     void Start()
@@ -12,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
         
         // print("Hey, I'm back at Start");
         PathFinder pathFinder = FindObjectOfType<PathFinder>();
-        var path = pathFinder.GetPath();
+        path = pathFinder.GetPath();
         StartCoroutine(FollowPath(path));
     }
 

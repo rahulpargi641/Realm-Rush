@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class WayPoint : MonoBehaviour
 {
-    [SerializeField] Color exploredColor;
     // Public ok as is a data class 
     public bool isExplored = false;
     public WayPoint exploredFrom;
     public bool isPlacable = true;
 
+    [SerializeField] Tower towerPrefab;
+    [SerializeField] Color exploredColor;
+
     Vector2Int gridPos;
+
     const int gridSize = 10; // we don't wanna individual block size
-    // Start is called before the first frame update
+  
     public int GetGridSize()
     {
         return gridSize;
@@ -20,7 +23,7 @@ public class WayPoint : MonoBehaviour
 
     // HomeWork - setting own color in Update()
 
-    public Vector2Int GetGridPos()
+    public Vector2Int GetGridLabelCoordinate()
     {
         return new Vector2Int(
             Mathf.RoundToInt(transform.position.x/gridSize),
@@ -33,11 +36,6 @@ public class WayPoint : MonoBehaviour
         topMeshRenderer.material.color = color;
         // Searching for children name top
     }    
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnMouseOver()
     {
@@ -45,7 +43,10 @@ public class WayPoint : MonoBehaviour
         {
             if (isPlacable)
             {
-                print(gameObject.name + " Tower Placement");
+                //print(gameObject.name + " Tower Placement");
+                Instantiate(towerPrefab, transform.position, Quaternion.identity);
+                isPlacable = false;
+                print("Tower placed");
             }
             else
             {

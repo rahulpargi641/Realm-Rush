@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPan: {fileID: 7661964386070933056}
-  targetEnemy: {fileID: 0}
   attackRange: 30
   projectileParticle: {fileID: 954139885207409585}
+  targetEnemy: {fileID: 0}
 --- !u!1001 &4617829413607051714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99,6 +99,10 @@ PrefabInstance:
     - target: {fileID: 581876451141596442, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559722641842487923, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
+      propertyPath: CollisionModule.minKillSpeed
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6378810606603415344, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: m_Name

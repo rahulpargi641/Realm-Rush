@@ -47,9 +47,10 @@ public class PathFinder : MonoBehaviour
         WayPoint previous = endWayPoint.exploredFrom;
         while(previous!=startWayPoint)
         {
+            SetAsPath(previous); 
             previous = previous.exploredFrom;
             // add intermediate waypoints
-            SetAsPath(previous);
+            
             
         }
 
@@ -72,10 +73,10 @@ public class PathFinder : MonoBehaviour
 
         foreach (WayPoint waypoint in waypoints)
         {
-            var gridPos = waypoint.GetGridPos();
+            var gridPos = waypoint.GetGridLabelCoordinate();
             if (grid.ContainsKey(gridPos))
             {
-                Debug.LogWarning("Skipping Overlapping Block" + waypoint);
+                //Debug.LogWarning("Skipping Overlapping Block" + waypoint);
             }
             else
             {
@@ -100,14 +101,14 @@ public class PathFinder : MonoBehaviour
             searchCenter.isExplored = true;
             
         }
-        print("Finished Pathfinding ?");  // Execution comes here
+       // print("Finished Pathfinding ?");  // Execution comes here
     }
 
      void HaltIfEndFound()
     {
         if (searchCenter == endWayPoint)
         {
-            print(" Searching for end node, therefore stopping "); // todo remove log
+            //print(" Searching for end node, therefore stopping "); // todo remove log
             isRunning = false;
         }
 
@@ -119,7 +120,7 @@ public class PathFinder : MonoBehaviour
 
         foreach(Vector2Int direction in directions)
         {
-            Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
+            Vector2Int neighbourCoordinates = searchCenter.GetGridLabelCoordinate() + direction;
           //  print("print" + neighbourCoordinates);
            /* try
             {
