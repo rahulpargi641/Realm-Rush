@@ -9,7 +9,6 @@ public class WayPoint : MonoBehaviour
     public WayPoint exploredFrom;
     public bool isPlacable = true;
 
-    [SerializeField] Tower towerPrefab;
     [SerializeField] Color exploredColor;
 
     Vector2Int gridPos;
@@ -43,10 +42,7 @@ public class WayPoint : MonoBehaviour
         {
             if (isPlacable)
             {
-                //print(gameObject.name + " Tower Placement");
-                Instantiate(towerPrefab, transform.position, Quaternion.identity);
-                isPlacable = false;
-                print("Tower placed");
+                FindObjectOfType<TowerFactory>().AddTower(this);
             }
             else
             {
@@ -55,7 +51,5 @@ public class WayPoint : MonoBehaviour
             
         }        
 
-
-       
     }
 }
