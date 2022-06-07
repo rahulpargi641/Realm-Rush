@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            
             newEnemy.transform.parent = enemyParent;
 
 

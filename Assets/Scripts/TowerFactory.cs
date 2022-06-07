@@ -30,14 +30,14 @@ public class TowerFactory : MonoBehaviour
 
     }
 
-    private void InstantiateNewTower(WayPoint baseWaypoint)
+    private void InstantiateNewTower(WayPoint clickedWaypoint)
     {
-        var newTower= Instantiate(towerPrefab, baseWaypoint.transform.position, Quaternion.identity);
+        var newTower= Instantiate(towerPrefab, clickedWaypoint.transform.position, Quaternion.identity);
 
         newTower.transform.parent = towerParentTransform; 
 
-        newTower.baseWaypoint = baseWaypoint;
-        baseWaypoint.isPlacable = false;
+        newTower.baseWaypoint = clickedWaypoint;
+        clickedWaypoint.isPlacable = false;
 
         towerQueue.Enqueue(newTower);
         //print("Tower List" );

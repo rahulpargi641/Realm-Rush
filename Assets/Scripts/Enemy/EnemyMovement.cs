@@ -6,6 +6,9 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] List<WayPoint> path; // todo remove
+
+    [SerializeField] ParticleSystem goalParticle;
+    [SerializeField] float movementPeriod =1;
    
     // Start is called before the first frame update
     void Start()
@@ -25,14 +28,19 @@ public class EnemyMovement : MonoBehaviour
             //print(wayPoint.name);
             transform.position = wayPoint.transform.position;
             // print(transform.position.x + "," + transform.position.z);   // to know about coroutine
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(movementPeriod);
         }
-        print("End Patrol");  
-    } 
+        print("End Patrol");
+        SelftDestruct();
+    }
 
-    // Update is called once per frame
-    void Update()
+    private void SelftDestruct() 
     {
-        
+        var deathVfx = Instantiate(goalParticle, transform.position, Quaternion.identity);
+        deathVfx.Play();
+        float destroyPlay = deathVfx.main.duration;
+        Destroy(deathVfx.gameObject, destroyPlay); // you're not destroying object you were destroying particlesystem
+
+        Destroy(gameObject); // destroy so that it won't sit in hierachy means world
     }
 }

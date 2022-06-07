@@ -9,6 +9,7 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField] int hitPoints = 10;
     [SerializeField] ParticleSystem hitParticlePrefab;  // uncheck play on awake  
     [SerializeField] ParticleSystem deathParticlePrefab;
+
     private void OnParticleCollision(GameObject other)
     {
         print("I'm Hit");
@@ -26,7 +27,7 @@ public class EnemyDamage : MonoBehaviour
         var deathVfx=Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
         deathVfx.Play();
         float destroyPlay = deathVfx.main.duration;
-        Destroy(deathVfx.gameObject, destroyPlay);
+        Destroy(deathVfx.gameObject, destroyPlay); // you're not destroying object you were destroying particlesystem
 
         Destroy(gameObject); // destroy so that it won't sit in hierachy means world
     }
