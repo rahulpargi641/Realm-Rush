@@ -10,24 +10,20 @@ public class TowerFactory : MonoBehaviour
 
     Queue<Tower> towerQueue = new Queue<Tower>();
 
-
-
     public void AddTower(WayPoint baseWaypoint)
     {
 
         int numTowers = towerQueue.Count;
         //print(gameObject.name + " Tower Placement");
 
-        if(numTowers<=towerLimit)
+        if(numTowers <= towerLimit)
         {
             InstantiateNewTower(baseWaypoint);
-            
         }
         else
         {
             MoveExistingTower(baseWaypoint);
         }
-
     }
 
     private void InstantiateNewTower(WayPoint clickedWaypoint)
@@ -40,8 +36,6 @@ public class TowerFactory : MonoBehaviour
         clickedWaypoint.isPlacable = false;
 
         towerQueue.Enqueue(newTower);
-        //print("Tower List" );
-        // print("Tower placed");
     }
 
     private void MoveExistingTower(WayPoint newBaseWaypoint)
@@ -56,5 +50,4 @@ public class TowerFactory : MonoBehaviour
 
         towerQueue.Enqueue(oldTower);
     }
-    
 }

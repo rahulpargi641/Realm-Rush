@@ -20,6 +20,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        health = health - healthDecrease; 
+        health = health - healthDecrease;  
     }
 }

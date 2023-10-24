@@ -67,7 +67,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 581876451141596442, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.299999
+      value: 7.2700005
       objectReference: {fileID: 0}
     - target: {fileID: 581876451141596442, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -75,11 +75,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 581876451141596442, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99663633
       objectReference: {fileID: 0}
     - target: {fileID: 581876451141596442, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.081951246
       objectReference: {fileID: 0}
     - target: {fileID: 581876451141596442, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -91,7 +91,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 581876451141596442, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: -9.401
       objectReference: {fileID: 0}
     - target: {fileID: 581876451141596442, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -104,6 +104,18 @@ PrefabInstance:
     - target: {fileID: 5559722641842487923, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: CollisionModule.minKillSpeed
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559722641842487923, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559722641842487923, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559722641842487923, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6378810606603415344, guid: 98a28ac0920638e4bbcf2a8b88d2566b, type: 3}
       propertyPath: m_Name

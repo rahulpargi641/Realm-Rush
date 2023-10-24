@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WayPoint : MonoBehaviour
 {
-    // Public ok as is a data class 
+    // Data Class
     public bool isExplored = false;
-    public WayPoint exploredFrom;
+    public WayPoint exploredFrom;  
     public bool isPlacable = true;
 
     [SerializeField] Color exploredColor;
@@ -20,21 +18,13 @@ public class WayPoint : MonoBehaviour
         return gridSize;
     }
 
-    // HomeWork - setting own color in Update()
-
-    public Vector2Int GetGridLabelCoordinate()
+    public Vector2Int GetGridCoordinate()
     {
         return new Vector2Int(
             Mathf.RoundToInt(transform.position.x/gridSize),
             Mathf.RoundToInt(transform.position.z/gridSize)); 
        
     }
-    public void SetTopColor(Color color)
-    {
-        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
-        topMeshRenderer.material.color = color;
-        // Searching for children name top
-    }    
 
     private void OnMouseOver()
     {
@@ -43,13 +33,18 @@ public class WayPoint : MonoBehaviour
             if (isPlacable)
             {
                 FindObjectOfType<TowerFactory>().AddTower(this);
+                Debug.Log("Tower Base Coordinate" + gameObject.name);
             }
             else
             {
                 print("Can't place it here");
             }
-            
-        }        
-
+        }       
     }
+
+    //public void SetTopColor(Color color)
+    //{
+    //    MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
+    //    topMeshRenderer.material.color = color;
+    //}
 }

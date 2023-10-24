@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -7,35 +5,34 @@ using UnityEngine;
 [RequireComponent(typeof(WayPoint))]
 public class CubeEditor : MonoBehaviour
 {
-    //[SerializeField] [Range(1,20)] float gridSize = 10f;
     WayPoint wayPoint;
+    TextMesh labelText;
+
     void Awake()
     {
-        // Debug.Log("Editor causes this Awake");
         wayPoint = GetComponent<WayPoint>();
+        labelText = GetComponentInChildren<TextMesh>();
     }
 
     void Update()
     {
         SnapToGrid();
-        UpdateLabel();
-
+        if (labelText)
+            UpdateLabel();
+        else
+            Debug.Log("Label Text is null");
     }
 
      void SnapToGrid()
      {
         int gridSize = wayPoint.GetGridSize();
-
-        transform.position = new Vector3(wayPoint.GetGridLabelCoordinate().x * gridSize, 0, wayPoint.GetGridLabelCoordinate().y * gridSize);
-      
+        transform.position = new Vector3(wayPoint.GetGridCoordinate().x * gridSize, 0, wayPoint.GetGridCoordinate().y * gridSize);
      }
 
     void UpdateLabel()
     {
-        TextMesh textMesh = GetComponentInChildren<TextMesh>();
-        string label = wayPoint.GetGridLabelCoordinate().x + "," + wayPoint.GetGridLabelCoordinate().y;
-
-        textMesh.text = label;
+        string label = wayPoint.GetGridCoordinate().x + "," + wayPoint.GetGridCoordinate().y;
+        labelText.text = label;
         gameObject.name = label;
     }
 }

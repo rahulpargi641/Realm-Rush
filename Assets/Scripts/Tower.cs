@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
     // Parameters of each tower
     [SerializeField] Transform objectToPan;
-    [SerializeField] float attackRange = 10f;
+    [SerializeField] float attackRange = 50f;
     [SerializeField] ParticleSystem projectileParticle;
 
     public WayPoint baseWaypoint;  // What the tower is standing on 
@@ -37,10 +34,10 @@ public class Tower : MonoBehaviour
 
         Transform closestEnemy = sceneEnemies[0].transform;
 
-        foreach (EnemyDamage testEnemy in sceneEnemies)
-        {
-            closestEnemy = GetClosestEnemy(closestEnemy, testEnemy.transform);
-        }
+        //foreach (EnemyDamage testEnemy in sceneEnemies)
+        //{
+        //    closestEnemy = GetClosestEnemy(closestEnemy, testEnemy.transform);
+        //}
 
         targetEnemy = closestEnemy;
     }
