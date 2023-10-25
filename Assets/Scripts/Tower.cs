@@ -19,7 +19,7 @@ public class Tower : MonoBehaviour
         if (targetEnemy)
         {
             objectToPan.LookAt(targetEnemy);
-            FireAtEnemy();  
+            FireAtEnemy();
         }
         else
         {
@@ -61,7 +61,6 @@ public class Tower : MonoBehaviour
         if (distanceToEnemy <= attackRange)
         {
             Shoot(true);
-
         }
         else
         {
@@ -74,5 +73,4 @@ public class Tower : MonoBehaviour
         var emissionModule = projectileParticle.emission;
         emissionModule.enabled = isActive;
     }
-
 }

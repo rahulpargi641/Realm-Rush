@@ -18,6 +18,7 @@ public class EnemyDamage : MonoBehaviour
     {
         hitPoints = hitPoints - 1;
         hitParticlePrefab.Play();
+        AudioManager.Instance.PlaySound(SoundType.Shoot);
         print("Current Hitpoints are " + hitPoints);
     }
 
@@ -32,5 +33,7 @@ public class EnemyDamage : MonoBehaviour
         Destroy(deathVfx.gameObject, destroyPlay);
 
         Destroy(gameObject);
+        AudioManager.Instance.PlaySound(SoundType.Death);
+
     }
 }
