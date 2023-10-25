@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,10 +10,9 @@ public class TowerFactory : MonoBehaviour
     Queue<Tower> towerQueue = new Queue<Tower>();
 
     public void AddTower(WayPoint baseWaypoint)
-    {
-
+    { 
         int numTowers = towerQueue.Count;
-        //print(gameObject.name + " Tower Placement");
+        print(gameObject.name + " Tower Placement");
 
         if(numTowers <= towerLimit)
         {
@@ -26,14 +24,14 @@ public class TowerFactory : MonoBehaviour
         }
     }
 
-    private void InstantiateNewTower(WayPoint clickedWaypoint)
+    private void InstantiateNewTower(WayPoint newBaseWayPoint)
     {
-        var newTower= Instantiate(towerPrefab, clickedWaypoint.transform.position, Quaternion.identity);
+        var newTower= Instantiate(towerPrefab, newBaseWayPoint.transform.position, Quaternion.identity);
 
         newTower.transform.parent = towerParentTransform; 
 
-        newTower.baseWaypoint = clickedWaypoint;
-        clickedWaypoint.isPlacable = false;
+        newTower.baseWaypoint = newBaseWayPoint;
+        newBaseWayPoint.isPlacable = false;
 
         towerQueue.Enqueue(newTower);
     }
@@ -41,9 +39,8 @@ public class TowerFactory : MonoBehaviour
     private void MoveExistingTower(WayPoint newBaseWaypoint)
     {
         var oldTower = towerQueue.Dequeue();
-        //print("Max Towers reached Can't Place Anymore Towers");
 
-        oldTower.baseWaypoint.isPlacable = true; // free up the block
+        oldTower.baseWaypoint.isPlacable = true; // frees up the block
         newBaseWaypoint.isPlacable = false;
         oldTower.baseWaypoint = newBaseWaypoint;
         oldTower.transform.position = newBaseWaypoint.transform.position;

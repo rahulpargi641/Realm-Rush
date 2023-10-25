@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4320373430648300}
   - component: {fileID: 33150901463718342}
   - component: {fileID: 23671622227395264}
+  - component: {fileID: 732260817907645244}
+  - component: {fileID: 6286380752098660412}
   m_Layer: 0
   m_Name: Block_Enemy
   m_TagString: Untagged
@@ -81,3 +83,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &732260817907645244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364836900482300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbabf532a2e4a04d8ff080fa7f05204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isExplored: 0
+  exploredFrom: {fileID: 0}
+  isPlacable: 1
+  exploredColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &6286380752098660412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364836900482300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e9c3ec7e27079468d6bfe12370611e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

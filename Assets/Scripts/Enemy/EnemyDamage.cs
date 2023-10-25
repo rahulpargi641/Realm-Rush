@@ -23,8 +23,11 @@ public class EnemyDamage : MonoBehaviour
 
     private void KillEnemy()
     {
-        var deathVfx = Instantiate(deathParticlePrefab, transform.position + new Vector3(0,0,10), Quaternion.identity);
+        FindObjectOfType<EnemySpawner>().EnemyDestroyed();
+
+        var deathVfx = Instantiate(deathParticlePrefab, transform.position + new Vector3(0f, 15f, 0f), Quaternion.identity);
         deathVfx.Play();
+
         float destroyPlay = deathVfx.main.duration;
         Destroy(deathVfx.gameObject, destroyPlay);
 

@@ -1,15 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Range(0.1f, 120f)]
-    [SerializeField] float secondsBetweenSpawns =2f;
+    [SerializeField] float secondsBetweenSpawns = 1f;
     [SerializeField] EnemyMovement enemyPrefab;
+    [SerializeField] Transform enemyParentTransform;
+    [SerializeField] TextMeshProUGUI nEnemiesDestroyedText;
 
-    [SerializeField] Transform enemyParent;
-
+    int nEnemiesDestroyed;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,17 +22,15 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-            
-            newEnemy.transform.parent = enemyParent;
-
+            newEnemy.transform.parent = enemyParentTransform;
 
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
-       
     }
-    // Update is called once per frame
-    void Update()
+
+    public void EnemyDestroyed()
     {
-        
+        nEnemiesDestroyed++;
+        nEnemiesDestroyedText.text = nEnemiesDestroyed.ToString();
     }
 }

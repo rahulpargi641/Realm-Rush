@@ -1,25 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] int health = 10;
-    [SerializeField] int healthDecrease = 1;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] int health = 100;
+    [SerializeField] int healthDecrease = 10;
+    [SerializeField] TextMeshProUGUI healthText;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other) // other - enemy 
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        health = health - healthDecrease;  
+        if(health >= 0)
+        {
+            health = health - healthDecrease;
+            healthText.text = health.ToString();
+        }
     }
 }
