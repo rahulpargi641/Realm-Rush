@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    [SerializeField] Collider collider;
     [SerializeField] int hitPoints = 10;
     [SerializeField] ParticleSystem hitParticlePrefab;   
     [SerializeField] ParticleSystem deathParticlePrefab;
@@ -10,16 +9,17 @@ public class EnemyDamage : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         ProcessHit();
-        if (hitPoints <= 0)
-            KillEnemy();
     }
 
     private void ProcessHit()
     {
         hitPoints = hitPoints - 1;
         hitParticlePrefab.Play();
-        AudioManager.Instance.PlaySound(SoundType.Shoot);
+        AudioManager.Instance.PlaySound(SoundType.Shoot); 
         print("Current Hitpoints are " + hitPoints);
+
+        if (hitPoints <= 0)
+            KillEnemy();
     }
 
     private void KillEnemy()
@@ -34,6 +34,5 @@ public class EnemyDamage : MonoBehaviour
 
         Destroy(gameObject);
         AudioManager.Instance.PlaySound(SoundType.Death);
-
     }
 }

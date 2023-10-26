@@ -135,7 +135,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580177997393757838}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -505,7 +505,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4707905364974804352}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -540,7 +540,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: c7e5eb26e26e0cb46a9804c976244fff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -641,9 +641,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExplored: 0
-  exploredFrom: {fileID: 0}
   isPlacable: 1
-  exploredColor: {r: 0, g: 0, b: 0, a: 0}
+  exploredFrom: {fileID: 0}
+  wayPointMeshRenderer: {fileID: 5312799181625357050}
+  placableColor: {r: 0.49466005, g: 0.6603774, b: 0.5258821, a: 0.27450982}
+  impassableColor: {r: 0.745283, g: 0.19264857, b: 0.19264857, a: 0.27450982}
 --- !u!65 &5042519528785784145
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -829,5 +831,10 @@ PrefabInstance:
 --- !u!4 &5325006583041710498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4501762900964862, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
+  m_PrefabInstance: {fileID: 5326006916248398940}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5312799181625357050 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23395027866721958, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
   m_PrefabInstance: {fileID: 5326006916248398940}
   m_PrefabAsset: {fileID: 0}

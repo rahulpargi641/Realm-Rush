@@ -32,8 +32,8 @@ public class PathFinder : MonoBehaviour
 
     private void CalculatePath()
     {
-        LoadBlocks();
-        BreathFirstSearch();
+        LoadWayPointsInGridDictionary();
+        DoBreathFirstSearch();
         CreatePath();
     }
 
@@ -58,7 +58,7 @@ public class PathFinder : MonoBehaviour
         waypoint.isPlacable = false;
     }
 
-    private void LoadBlocks()
+    private void LoadWayPointsInGridDictionary()
     {
         var waypoints = FindObjectsOfType<WayPoint>();
 
@@ -67,7 +67,7 @@ public class PathFinder : MonoBehaviour
             var gridPos = waypoint.GetGridCoordinate();
             if (grid.ContainsKey(gridPos))
             {
-                //Debug.LogWarning("Skipping Overlapping Block" + waypoint);
+                Debug.LogWarning("Skipping Overlapping Block" + waypoint);
             }
             else
             {
@@ -76,18 +76,18 @@ public class PathFinder : MonoBehaviour
         }
     }
 
-    void BreathFirstSearch()
+    void DoBreathFirstSearch()
     {
         wayPointQueue.Enqueue(startWayPoint);
-        while(wayPointQueue.Count > 0 && isAlgoRunning)   // This will prevent us from getting us in a infinite loop
+        while(wayPointQueue.Count > 0 && isAlgoRunning)
         {
             currentsearchCenter = wayPointQueue.Dequeue();
-            // print("searchCenter: " + searchCenter); // todo remove log
+            // print("current searchCenter: " + searchCenter);
             HaltIfEndFound();
             ExploreNeighbours();
             currentsearchCenter.isExplored = true;
         }
-       // print("Finished Pathfinding ?");  // Execution comes here
+       // print("Finished Pathfinding ?"); 
     }
     
     private void HaltIfEndFound()
@@ -136,13 +136,5 @@ public class PathFinder : MonoBehaviour
             neighbour.exploredFrom = currentsearchCenter;
            // print("Queueing " + neighbour);
         }
-       
     }
-
-    //private void ColorStartAndEnd()
-    //{
-    //    // todo consider moving out
-    //    startWayPoint.SetTopColor(Color.red);
-    //    endWayPoint.SetTopColor(Color.cyan);
-    //}
 }

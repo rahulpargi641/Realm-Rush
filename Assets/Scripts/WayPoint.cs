@@ -4,15 +4,22 @@ public class WayPoint : MonoBehaviour
 {
     // Data Class
     public bool isExplored = false;
-    public WayPoint exploredFrom;  
     public bool isPlacable = true;
+    public WayPoint exploredFrom;  
 
-    [SerializeField] Color exploredColor;
+    [SerializeField] MeshRenderer wayPointMeshRenderer;
+    [SerializeField] Color placableColor;
+    [SerializeField] Color impassableColor;
 
-    Vector2Int gridPos;
+    Color originalColor;
 
     const int gridSize = 10; // we don't wanna individual block size
-  
+
+    private void Start()
+    {
+        originalColor = wayPointMeshRenderer.material.color;
+    }
+
     public int GetGridSize()
     {
         return gridSize;
@@ -33,18 +40,34 @@ public class WayPoint : MonoBehaviour
             if (isPlacable)
             {
                 FindObjectOfType<TowerFactory>().AddTower(this);
+
                 Debug.Log("Tower Base Coordinate" + gameObject.name);
             }
             else
-            {
                 print("Can't place it here");
-            }
-        }       
+        }
     }
 
-    //public void SetTopColor(Color color)
-    //{
-    //    MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
-    //    topMeshRenderer.material.color = color;
-    //}
+    private void OnMouseEnter()
+    {
+        UpdateMeshColor();
+    }
+
+    private void OnMouseExit()
+    {
+        wayPointMeshRenderer.material.color = originalColor;
+    }
+
+    private void UpdateMeshColor()
+    {
+        if (isPlacable)
+            SetMeshColor(placableColor);
+        else
+            SetMeshColor(impassableColor);
+    }
+
+    public void SetMeshColor(Color color)
+    {
+        wayPointMeshRenderer.material.color = color;
+    }
 }

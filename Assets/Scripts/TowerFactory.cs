@@ -14,7 +14,7 @@ public class TowerFactory : MonoBehaviour
         int numTowers = towerQueue.Count;
         print(gameObject.name + " Tower Placement");
 
-        if(numTowers <= towerLimit)
+        if(numTowers < towerLimit)
         {
             InstantiateNewTower(baseWaypoint);
         }
