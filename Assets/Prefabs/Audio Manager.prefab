@@ -44,13 +44,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - soundType: 2
-    clip: {fileID: 8300000, guid: c48a972d3d024c2408a3331750786a29, type: 3}
+  - soundType: 0
+    clip: {fileID: 8300000, guid: 0d6b319fdfd26764c8aebbd9b77fdbe4, type: 3}
+    volume: 0.746
+    pitch: 1.52
+    loop: 0
+  - soundType: 1
+    clip: {fileID: 8300000, guid: 276945fffa2b16d40b009947d5d79fa2, type: 3}
     volume: 1
     pitch: 1
     loop: 0
-  - soundType: 0
+  - soundType: 2
     clip: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+  - soundType: 3
+    clip: {fileID: 8300000, guid: c1f8c36ebdb20024ea8a59ec457d582c, type: 3}
     volume: 1
     pitch: 1
+    loop: 0
+  - soundType: 4
+    clip: {fileID: 8300000, guid: 0e548824010954b4daf61c624cf0938f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - soundType: 5
+    clip: {fileID: 8300000, guid: fbf5636eea7288145ba3525bc9f4d99a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - soundType: 6
+    clip: {fileID: 8300000, guid: 70f1e6a5e0803e147856bba916eca796, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - soundType: 7
+    clip: {fileID: 8300000, guid: 03ed9ea1b657b6640b4cac60db370b45, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+  - soundType: 8
+    clip: {fileID: 8300000, guid: d4aee29185389894b9cc0d8873904a49, type: 3}
+    volume: 1
+    pitch: 0.5
     loop: 0

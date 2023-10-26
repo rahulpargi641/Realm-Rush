@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] TextMeshProUGUI nEnemiesDestroyedText;
 
     int nEnemiesDestroyed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,13 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator RepeatedlySpawnEnemies()
     {
+        yield return new WaitForSeconds(2f);
+
         while (true)
         {
             var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             newEnemy.transform.parent = enemyParentTransform;
+            AudioManager.Instance.PlaySound(SoundType.Spawn);
 
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
@@ -32,5 +36,6 @@ public class EnemySpawner : MonoBehaviour
     {
         nEnemiesDestroyed++;
         nEnemiesDestroyedText.text = nEnemiesDestroyed.ToString();
+        AudioManager.Instance.PlaySound(SoundType.Destroyed);
     }
 }

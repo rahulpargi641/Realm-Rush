@@ -22,6 +22,8 @@ public class TowerFactory : MonoBehaviour
         {
             MoveExistingTower(baseWaypoint);
         }
+
+        AudioManager.Instance.PlaySound(SoundType.TowerPlaced);
     }
 
     private void InstantiateNewTower(WayPoint newBaseWayPoint)

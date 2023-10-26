@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +7,6 @@ public class GameOverPresenter : MonoBehaviour
     [SerializeField] Button startButton;
     [SerializeField] Button quitButton;
     [SerializeField] float LevelLoadDelay = 2f;
-    [SerializeField] string GameOverSceneName = "GameOver";
 
     private void Awake()
     {
@@ -16,19 +14,10 @@ public class GameOverPresenter : MonoBehaviour
         quitButton.onClick.AddListener(QuitGame);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        PlayerHealth.onPlayerDeath += GameOver;
-    }
-
-    private void OnDestroy()
-    {
-        PlayerHealth.onPlayerDeath -= GameOver;
-    }
-
     private void PlayGame()
     {
+        AudioManager.Instance.PlaySound(SoundType.MenuButtonStart);
+
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
             nextSceneIndex = 0;
@@ -38,18 +27,9 @@ public class GameOverPresenter : MonoBehaviour
 
     private void QuitGame()
     {
+        AudioManager.Instance.PlaySound(SoundType.MenuButtonQuit);
+
         Application.Quit();
-    }
-
-    private void GameOver()
-    {
-        StartCoroutine(LoadGameOverScene());
-    }
-
-    private IEnumerator LoadGameOverScene()
-    {
-        yield return new WaitForSecondsRealtime(LevelLoadDelay);
-
-        SceneManager.LoadScene(GameOverSceneName);
+        UnityEditor.EditorApplication.isPlaying = false; // Stop playing in the editor
     }
 }

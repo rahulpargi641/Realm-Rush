@@ -15,8 +15,9 @@ public class EnemyDamage : MonoBehaviour
     {
         hitPoints = hitPoints - 1;
         hitParticlePrefab.Play();
-        AudioManager.Instance.PlaySound(SoundType.Shoot); 
         print("Current Hitpoints are " + hitPoints);
+
+        AudioManager.Instance.PlaySound(SoundType.Shoot);
 
         if (hitPoints <= 0)
             KillEnemy();
@@ -32,7 +33,8 @@ public class EnemyDamage : MonoBehaviour
         float destroyPlay = deathVfx.main.duration;
         Destroy(deathVfx.gameObject, destroyPlay);
 
+        AudioManager.Instance.PlaySound(SoundType.Destroyed);
+
         Destroy(gameObject);
-        AudioManager.Instance.PlaySound(SoundType.Death);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] List<WayPoint> path; // todo remove
+    [SerializeField] List<WayPoint> path; // todo remove serializefield
 
     [SerializeField] ParticleSystem goalParticle;
     [SerializeField] float movementPeriod = 1;

@@ -58,9 +58,13 @@ public class Sound
 
 public enum SoundType
 {
+    TowerPlaced,
+    Spawn,
     Shoot,
-    Hurt,
-    Death,
-    ButtonClick,
-    BgMusic
+    Destroyed,
+    MenuButtonConfirm,
+    MenuButtonStart,
+    MenuButtonQuit,
+    BgMusic,
+    PlayerDeath
 }

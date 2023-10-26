@@ -1,18 +1,35 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseScreen;
     [SerializeField] Button quitButton;
+    [SerializeField] string GameOverSceneName = "GameOver";
+    [SerializeField] float LevelLoadDelay = 2f;
 
     private bool isPaused = false;
 
-    private void Start()
+    private void Awake()
     {
         quitButton.onClick.AddListener(QuitGame);
+        pauseScreen.SetActive(false); 
     }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        PlayerHealth.onPlayerDeath += GameOver;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHealth.onPlayerDeath -= GameOver;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -30,32 +47,46 @@ public class GameManager : MonoBehaviour
 
     void PauseGame()
     {
-        Time.timeScale = 0;
-        pauseScreen.SetActive(true);
         isPaused = true;
+        pauseScreen.SetActive(true);
+        Time.timeScale = 0; // Pause time
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void ResumeGame()
     {
-        Time.timeScale = 1;
-        pauseScreen.SetActive(false);
         isPaused = false;
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1; // Resume time
 
-        Cursor.visible = true; 
-        Cursor.lockState = CursorLockMode.None; 
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void QuitGame()
+    private void QuitGame()
     {
         if (Application.isPlaying)
         {
-            EditorApplication.isPlaying = false;
+            Application.Quit(); // Quit the game directly
         }
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // Stop playing in the editor
+#endif
+        AudioManager.Instance.PlaySound(SoundType.MenuButtonConfirm);
+    }
 
-        Application.Quit();
+    private void GameOver()
+    {
+        StartCoroutine(LoadGameOverScene());
+    }
+
+    private IEnumerator LoadGameOverScene()
+    {
+        yield return new WaitForSecondsRealtime(LevelLoadDelay);
+
+        SceneManager.LoadScene(GameOverSceneName);
     }
 }
 

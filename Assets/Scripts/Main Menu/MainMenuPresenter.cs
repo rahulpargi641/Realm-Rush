@@ -26,7 +26,7 @@ public class MainMenuPresenter : MonoBehaviour
 
     private void PlayGame()
     {
-        PlayButtonClickSound();
+        AudioManager.Instance.PlaySound(SoundType.MenuButtonStart);
 
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
@@ -37,28 +37,26 @@ public class MainMenuPresenter : MonoBehaviour
 
     private void QuitGame()
     {
-        PlayButtonClickSound();
+        AudioManager.Instance.PlaySound(SoundType.MenuButtonQuit);
 
+        UnityEditor.EditorApplication.isPlaying = false; // Stop playing in the editor
         Application.Quit();
     }
 
     private void ShowInstructionScreen()
     {
-        PlayButtonClickSound();
+        AudioManager.Instance.PlaySound(SoundType.MenuButtonConfirm);
 
         instructionsScreen.SetActive(true);
     }
 
     private void HideInstructionsScreen()
     {
+        AudioManager.Instance.PlaySound(SoundType.MenuButtonConfirm);
+
         if (instructionsScreen.activeSelf)
         {
             instructionsScreen.SetActive(false);
         }
-    }
-
-    private void PlayButtonClickSound()
-    {
-        AudioManager.Instance.PlaySound(SoundType.ButtonClick);
     }
 }
