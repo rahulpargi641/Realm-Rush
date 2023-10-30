@@ -10,7 +10,7 @@
     - Placable blocks (waypoints) change to green when a tower can be placed on the grid, turning red if not 
       placable.
     - Intelligent AI finds the shortest path from the starting point(enemy base) to the destination(player base).
-      Enemies spawn from the enemy base at fixed intervals and move toward the player's base.
+      enemies spawn from the enemy base at fixed intervals and move toward the player's base.
     - Towers automatically target the nearest enemy.
     - Enjoy spacious vibes and immersive sound effects.
     
