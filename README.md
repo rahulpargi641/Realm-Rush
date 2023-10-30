@@ -12,7 +12,7 @@
     - Intelligent AI finds the shortest path from the starting point(enemy base) to the destination(player base).
       enemies spawn from the enemy base at fixed intervals and move toward the player's base.
     - Towers automatically target the nearest enemy.
-    - Enjoy spacious vibes and immersive sound effects.
+    - Spacious vibes and immersive sound effects.
     
 ### Screenshots
 
