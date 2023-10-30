@@ -13,7 +13,11 @@
       Enemies spawn from the enemy base at fixed intervals and move toward the player's base.
     - Towers automatically target the nearest enemy.
     - Enjoy spacious vibes and immersive sound effects.
+    
+### Screenshots
 
+   (Insert screenshots)
+   
 ### Implementation and Game Design
 #### Implementation
     - PathFinder: Responsible for finding the shortest path on the grid using the breadth-first search algorithm 
@@ -38,3 +42,15 @@
      - Designed strategic level by myself using provided assets.
      - Implemented an editor script(CubeEditor) to facilitate the placement of blocks (waypoints) with restricted 
        integer coordinates.
+### Focus
+    - Code Quality and Organization.
+    - Architecture Design for Flexibility and Scalability.
+    - Visually appealing, with soothing music and sound effects. 
+
+### Gameplay Demonstration
+
+    For a visual demonstration of the gameplay, watch video on YouTube.
+
+### Play the Game
+
+    To experience the game firsthand, play it directly by following this playable link.
