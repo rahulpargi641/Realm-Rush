@@ -17,12 +17,12 @@
 ### Implementation and Game Design
 #### Implementation
     - PathFinder: Responsible for finding the shortest path on the grid using the breadth-first search algorithm 
-             implemented with a Dictionary and a queue.
+                  implemented with a Dictionary and a queue.
     
     - TowerFactory: Responsible for limiting the instantiation of towers to a maximum of 6 and reusing already 
-             spawned towers for performance using the queue.
+                  spawned towers for performance using the queue.
     - Tower: Responsible for finding the nearest enemy and targeting them. After destroying the targeted enemy, 
-             it selects the next nearest one.
+                  it selects the next nearest one.
              
     - EnemySpawner: Spawns enemies at fixed intervals.
     
@@ -36,4 +36,5 @@
                    pathfinding, as it relies on integer coordinates.
  #### Game Design
      - Designed strategic level by myself using provided assets.
-     - Implemented an editor script to facilitate the placement of blocks (waypoints) with restricted integer coordinates.
+     - Implemented an editor script(CubeEditor) to facilitate the placement of blocks (waypoints) with restricted 
+       integer coordinates.
