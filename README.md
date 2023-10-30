@@ -39,7 +39,7 @@
     - Cube Editor: An editor script for placing grid blocks (waypoints) only at integer coordinates, crucial for 
                    pathfinding, as it relies on integer coordinates.
  #### Game Design
-     - Designed strategic level by myself using provided assets.
+     - Designed strategic level independently using provided assets.
      - Implemented an editor script(CubeEditor) to facilitate the placement of blocks (waypoints) with restricted 
        integer coordinates.
 ### Focus
