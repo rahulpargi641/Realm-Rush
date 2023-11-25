@@ -39,7 +39,7 @@ public class MainMenuPresenter : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(SoundType.MenuButtonQuit);
 
-        UnityEditor.EditorApplication.isPlaying = false; // Stop playing in the editor
+        //UnityEditor.EditorApplication.isPlaying = false; // Stop playing in the editor
         Application.Quit();
     }
 

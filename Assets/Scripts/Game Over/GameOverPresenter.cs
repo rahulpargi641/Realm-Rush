@@ -30,6 +30,6 @@ public class GameOverPresenter : MonoBehaviour
         AudioManager.Instance.PlaySound(SoundType.MenuButtonQuit);
 
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false; // Stop playing in the editor
+        //UnityEditor.EditorApplication.isPlaying = false; // Stop playing in the editor
     }
 }
