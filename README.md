@@ -23,9 +23,6 @@
    ![EnemyDestroyed](./Screenshots/EnemyDestroyed.png)
    ![GameOver](./Screenshots/GameOver.png)
 
-
-
-
    
 ### Implementation and Game Design
 #### Implementation
@@ -49,15 +46,17 @@
                    
     - Cube Editor: An editor script for placing grid blocks (waypoints) only at integer coordinates, crucial for 
                    pathfinding, as it relies on integer coordinates.
+
+ 
  #### Game Design
      - Designed strategic level independently using provided assets.
      - Implemented an editor script(CubeEditor) to facilitate the placement of blocks (waypoints) with restricted 
        integer coordinates.
-### Focus
-    - Code Quality and Organization.
-    - Architecture Design for Flexibility and Scalability.
-    - Visually appealing, with soothing music and sound effects. 
-
+       
+#### Focus
+    - Learning Custom pathfinding for analog grid based world.
+    - Get famalier with using data structures like dictionaries, lists.
+    
 ### Gameplay Demonstration
     For a visual demonstration of the gameplay, watch video on YouTube.
  [Youtube Video Link](https://youtu.be/cmyqPkxtXsE)
