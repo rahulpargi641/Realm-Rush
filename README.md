@@ -21,10 +21,11 @@
 ### Implementation and Game Design
 #### Implementation
     - PathFinder: Responsible for finding the shortest path on the grid using the breadth-first search algorithm 
-                  implemented with a Dictionary and a queue.
+                  implemented using data sturctures like dictionary and a queue.
     
     - TowerFactory: Responsible for limiting the instantiation of towers to a maximum of 6 and reusing already 
                   spawned towers for performance using the queue.
+                  
     - Tower: Responsible for finding the nearest enemy and targeting them. After destroying the targeted enemy, 
                   it selects the next nearest one.
              
