@@ -19,8 +19,8 @@
    ![StartMenu](./Screenshots/MainMenu.png)
    ![TowerShooting](./Screenshots/TowerShooting.png)
    ![TowerShooting2](./Screenshots/TowerShooting2.png)
-   ![EnemyDestroyed](./Screenshots/EnemyDestroyed.png)
    ![TowerShooting3](./Screenshots/TowerShooting3.png)
+   ![EnemyDestroyed](./Screenshots/EnemyDestroyed.png)
    ![GameOver](./Screenshots/GameOver.png)
 
 
