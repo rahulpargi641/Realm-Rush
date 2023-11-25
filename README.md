@@ -37,6 +37,7 @@
     
     - GameManager: Responsible for managing game states, such as running, pausing, or activating the game over 
                    screen if the player is defeated.
+                   
     - Cube Editor: An editor script for placing grid blocks (waypoints) only at integer coordinates, crucial for 
                    pathfinding, as it relies on integer coordinates.
  #### Game Design
