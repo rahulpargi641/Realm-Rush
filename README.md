@@ -6,7 +6,7 @@
     enemies, ensuring the player's base remains secure.
 
 ### Features
-    - Placement of up to 6 towers on the grid.
+    - Placement of up to 7 towers on the grid.
     - Placable blocks (waypoints) change to green when a tower can be placed on the grid, turning red if not 
       placable.
     - Intelligent AI finds the shortest path from the starting point(enemy base) to the destination(player base).
@@ -16,14 +16,23 @@
     
 ### Screenshots
 
-   (Insert screenshots)
+   ![StartMenu](./Screenshots/MainMenu.png)
+   ![TowerShooting](./Screenshots/TowerShooting.png)
+   ![TowerShooting2](./Screenshots/TowerShooting2.png)
+   ![EnemyDestroyed](./Screenshots/EnemyDestroyed.png)
+   ![TowerShooting3](./Screenshots/TowerShooting3.png)
+   ![GameOver](./Screenshots/GameOver.png)
+
+
+
+
    
 ### Implementation and Game Design
 #### Implementation
     - PathFinder: Responsible for finding the shortest path on the grid using the breadth-first search algorithm 
                   implemented using data sturctures like dictionary and a queue.
     
-    - TowerFactory: Responsible for limiting the instantiation of towers to a maximum of 6 and reusing already 
+    - TowerFactory: Responsible for limiting the instantiation of towers to a maximum of 7 and reusing already 
                   spawned towers for performance using the queue.
                   
     - Tower: Responsible for finding the nearest enemy and targeting them. After destroying the targeted enemy, 
@@ -50,9 +59,9 @@
     - Visually appealing, with soothing music and sound effects. 
 
 ### Gameplay Demonstration
-
     For a visual demonstration of the gameplay, watch video on YouTube.
+ [Youtube Video Link](https://youtu.be/cmyqPkxtXsE)
 
 ### Play the Game
-
     To experience the game firsthand, play it directly by following this playable link.
+[Play in browser(WebGl)](https://rahul-pargi.itch.io/realm-rush)
