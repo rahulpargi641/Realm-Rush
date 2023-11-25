@@ -54,8 +54,9 @@
        integer coordinates.
        
 #### Focus
-    - Learning Custom pathfinding for analog grid based world.
-    - Get famalier with using data structures like dictionaries, lists.
+    - Learn custom pathfinding for an analog grid-based world using the BFS algorithm.
+    - Get familiar with using data structures like dictionaries and lists.
+    - Become familiar with using a Particle System.
     
 ### Gameplay Demonstration
     For a visual demonstration of the gameplay, watch video on YouTube.
