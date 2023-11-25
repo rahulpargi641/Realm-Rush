@@ -59,9 +59,9 @@
     - Become familiar with using a Particle System.
     
 ### Gameplay Demonstration
-    For a visual demonstration of the gameplay, watch video on YouTube.
+    For a visual demonstration of the gameplay, watch video on YouTube:
  [Youtube video link](https://youtu.be/cmyqPkxtXsE)
 
 ### Play the Game
-    To experience the game firsthand, play it directly by following this playable link.
+    To experience the game firsthand, play it directly by following this playable link:
 [Play in browser(WebGl)](https://rahul-pargi.itch.io/realm-rush)
