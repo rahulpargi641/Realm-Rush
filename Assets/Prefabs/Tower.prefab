@@ -45,9 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87aefaf375dd0ca40b736bfb4cc1f56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 50
   towerGunTransform: {fileID: 7661964386070933056}
-  projectileParticle: {fileID: 954139885207409585}
+  projectileParticles: {fileID: 954139885207409585}
   baseWaypoint: {fileID: 0}
 --- !u!1001 &4617829413607051714
 PrefabInstance:

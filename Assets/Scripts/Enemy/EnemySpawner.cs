@@ -40,7 +40,10 @@ public class EnemySpawner : MonoBehaviour
         //var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity); // Object pooling
         //newEnemy.transform.parent = enemyParentTransform;
         var spawnedEnemy = FlyweightFactory.Spawn(enemies[0]);
-        spawnedEnemy.transform.parent = enemyParentTransform;
+        if (spawnedEnemy)
+            spawnedEnemy.transform.parent = enemyParentTransform;
+        else
+            Debug.LogError("Enemy Didn't created");
     }
 
     public void EnemyDestroyed()

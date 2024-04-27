@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class AudioManager : MonoSingletonGeneric<AudioManager>
 {
     [SerializeField] List<Sound> sounds = new List<Sound>();

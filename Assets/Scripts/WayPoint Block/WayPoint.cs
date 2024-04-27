@@ -1,11 +1,12 @@
 using UnityEngine;
+using Assets.Scripts.Defense_Tower;
 
 public class WayPoint : MonoBehaviour
 {
     // Data Class
     public bool isExplored = false;
     public bool isPlacable = true;
-    public WayPoint exploredFrom;  
+    public WayPoint exploredFrom;
 
     [SerializeField] MeshRenderer wayPointMeshRenderer;
     [SerializeField] Color placableColor;
@@ -28,9 +29,9 @@ public class WayPoint : MonoBehaviour
     public Vector2Int GetGridCoordinate()
     {
         return new Vector2Int(
-            Mathf.RoundToInt(transform.position.x/gridSize),
-            Mathf.RoundToInt(transform.position.z/gridSize)); 
-       
+            Mathf.RoundToInt(transform.position.x / gridSize),
+            Mathf.RoundToInt(transform.position.z / gridSize));
+
     }
 
     private void OnMouseOver()

@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public interface IDefenseUnit
+namespace Assets.Scripts.Defense_Tower
 {
-    void Attack();
-}
+    public interface IDefenseUnit
+    {
+        void Shoot(bool bShoot);
+    }
 
 
-public abstract class DefenseUnitFactory : ScriptableObject
-{
-    public abstract IDefenseUnit Create();
+    public abstract class DenfenseUnitFactory : ScriptableObject
+    {
+        public GameObject prefab;
+        public abstract IDefenseUnit Create();
+    }
 }

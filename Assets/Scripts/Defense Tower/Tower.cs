@@ -1,99 +1,105 @@
+using System.Collections;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+namespace Assets.Scripts.Defense_Tower
 {
-    // Parameters of each tower
-    [SerializeField] int attackRange = 50;
-
-    [SerializeField] Transform towerGunTransform;
-    [SerializeField] ParticleSystem projectileParticle;
-
-    public WayPoint baseWaypoint;  // What the tower is standing on 
-
-    Transform initialTowerGunTransform;
-    Transform targetEnemy;
-
-    private void Start()
+    public class Tower : MonoBehaviour, IDefenseUnit
     {
-        initialTowerGunTransform = towerGunTransform;
-    }
+        public TowerData Data { private get; set; }
+        public WayPoint BaseWaypoint { get; set; } // What the tower is standing on 
 
-    // Update is called once per frame
-    private void Update()
-    {
-        UpdateTargetEnemy();
-        if (targetEnemy)
+        [SerializeField] private Transform towerGunTransform;
+        [SerializeField] private ParticleSystem projectileParticles;
+
+        private Transform initialTowerGunTransform;
+        private Transform targetEnemy;
+
+        private void Start()
         {
-            FireAtEnemyIfInAttackRange();
+            initialTowerGunTransform = towerGunTransform;
         }
-        else
+
+        private void Update()
         {
-            towerGunTransform = initialTowerGunTransform;
-            Shoot(false);
+            UpdateTargetEnemy();
+            ProcessShooting();
         }
-    }
 
-    private void UpdateTargetEnemy()
-    {
-        var enemies = FindObjectsOfType<EnemyDamage>();
-        if (enemies.Length == 0)
+        private void ProcessShooting()
         {
-            targetEnemy = null; // No enemies, so set targetEnemy to null
-            return;
-        }
-        SetTargetEnemy(enemies);
-    }
-
-    private void SetTargetEnemy(EnemyDamage[] enemies)
-    {
-        Transform closestEnemy = null; // Initialize to null
-
-        foreach (EnemyDamage testEnemy in enemies)
-        {
-            if (closestEnemy == null)
+            if (targetEnemy)
             {
-                closestEnemy = testEnemy.transform;
+                ShootAtEnemyIfInAttackRange();
             }
             else
             {
-                closestEnemy = SetCLosestEnemy(closestEnemy, testEnemy);
+                towerGunTransform = initialTowerGunTransform;
+                Shoot(false);
             }
         }
 
-        targetEnemy = closestEnemy;
-    }
-
-    private Transform SetCLosestEnemy(Transform closestEnemy, EnemyDamage testEnemy)
-    {
-        float disToClosest = Vector3.Distance(transform.position, closestEnemy.position);
-        float disToTest = Vector3.Distance(transform.position, testEnemy.transform.position);
-
-        if (disToTest < disToClosest)
+        private void UpdateTargetEnemy()
         {
-            closestEnemy = testEnemy.transform;
+            var enemies = FindObjectsOfType<EnemyDamage>();
+            if (enemies.Length == 0)
+            {
+                targetEnemy = null; // No enemies, so set targetEnemy to null
+                return;
+            }
+            SetTargetEnemy(enemies);
         }
 
-        return closestEnemy;
-    }
-
-    private void FireAtEnemyIfInAttackRange()
-    {
-        float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, gameObject.transform.position);
-        if (distanceToEnemy <= attackRange)
+        private void SetTargetEnemy(EnemyDamage[] enemies)
         {
-            towerGunTransform.LookAt(targetEnemy);
-            Shoot(true);
-        }
-        else
-        {
-            towerGunTransform = initialTowerGunTransform;
-            Shoot(false);
-        }
-    }
+            Transform closestEnemy = null; // Initialize to null
 
-    private void Shoot(bool isActive)
-    {
-        var emissionModule = projectileParticle.emission;
-        emissionModule.enabled = isActive;
+            foreach (EnemyDamage testEnemy in enemies)
+            {
+                if (closestEnemy == null)
+                {
+                    closestEnemy = testEnemy.transform;
+                }
+                else
+                {
+                    closestEnemy = SetCLosestEnemy(closestEnemy, testEnemy);
+                }
+            }
+
+            targetEnemy = closestEnemy;
+        }
+
+        private Transform SetCLosestEnemy(Transform closestEnemy, EnemyDamage testEnemy)
+        {
+            float disToClosest = Vector3.Distance(transform.position, closestEnemy.position);
+            float disToTest = Vector3.Distance(transform.position, testEnemy.transform.position);
+
+            if (disToTest < disToClosest)
+            {
+                closestEnemy = testEnemy.transform;
+            }
+
+            return closestEnemy;
+        }
+
+        private void ShootAtEnemyIfInAttackRange()
+        {
+            float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, gameObject.transform.position);
+            if (distanceToEnemy <= Data.attackRange)
+            {
+                towerGunTransform.LookAt(targetEnemy);
+                Shoot(true);
+            }
+            else
+            {
+                towerGunTransform = initialTowerGunTransform;
+                Shoot(false);
+            }
+        }
+
+        public void Shoot(bool bShoot)
+        {
+            var emissionModule = projectileParticles.emission;
+            emissionModule.enabled = bShoot;
+        }
     }
 }

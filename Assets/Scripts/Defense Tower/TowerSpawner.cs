@@ -1,53 +1,61 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class TowerSpawner : MonoBehaviour
+namespace Assets.Scripts.Defense_Tower
 {
-    [SerializeField] int towerLimit = 5;
-    [SerializeField] Tower towerPrefab;
-    [SerializeField] Transform spawnerTransform;
-
-    Queue<Tower> towerQueue = new Queue<Tower>();
-
-    public void AddTower(WayPoint waypointToPlaceOn)
-    { 
-        int nTowers = towerQueue.Count;
-        print(gameObject.name + " Tower Placement");
-
-        if(nTowers < towerLimit)
-        {
-            SpawnTower(waypointToPlaceOn);
-        }
-        else
-        {
-            MoveExistingTower(waypointToPlaceOn);
-        }
-
-        AudioManager.Instance.PlaySound(SoundType.TowerPlaced);
-    }
-
-    private void SpawnTower(WayPoint newBaseWayPoint)
+    public class TowerSpawner : MonoBehaviour
     {
-        var newTower = Instantiate(towerPrefab, newBaseWayPoint.transform.position, Quaternion.identity); // object pool
+        [SerializeField] TowerFactory towerFactory;
+        [SerializeField] int towerLimit = 5;
 
-        newTower.transform.parent = spawnerTransform; 
+        Queue<Tower> towerQueue = new Queue<Tower>();
 
-        newTower.baseWaypoint = newBaseWayPoint;
-        newBaseWayPoint.isPlacable = false;
+        public void AddTower(WayPoint waypointToPlaceOn)
+        {
+            int nTowers = towerQueue.Count;
+            print(gameObject.name + " Tower Placement");
 
-        towerQueue.Enqueue(newTower);
-    }
+            if (nTowers < towerLimit)
+            {
+                SpawnTower(waypointToPlaceOn);
+            }
+            else
+            {
+                MoveExistingTower(waypointToPlaceOn);
+            }
 
-    private void MoveExistingTower(WayPoint waypointToPlaceOn)
-    {
-        var oldTower = towerQueue.Dequeue();
+            AudioManager.Instance.PlaySound(SoundType.TowerPlaced);
+        }
 
-        oldTower.baseWaypoint.isPlacable = true; // frees up the block
-        waypointToPlaceOn.isPlacable = false;
-        oldTower.baseWaypoint = waypointToPlaceOn;
-        oldTower.transform.position = waypointToPlaceOn.transform.position;
+        private void SpawnTower(WayPoint newBaseWayPoint)
+        {
+            var newTower = towerFactory.Create() as Tower;
 
-        towerQueue.Enqueue(oldTower);
+            SetTransformAndParent(newBaseWayPoint, newTower);
+
+            newTower.BaseWaypoint = newBaseWayPoint;
+            newBaseWayPoint.isPlacable = false;
+
+            towerQueue.Enqueue(newTower);
+        }
+
+        private void SetTransformAndParent(WayPoint newBaseWayPoint, Tower spawnedTower)
+        {
+            spawnedTower.transform.position = newBaseWayPoint.transform.position;
+            spawnedTower.transform.rotation = Quaternion.identity;
+            spawnedTower.transform.parent = transform;
+        }
+
+        private void MoveExistingTower(WayPoint waypointToPlaceOn)
+        {
+            var oldTower = towerQueue.Dequeue();
+
+            oldTower.BaseWaypoint.isPlacable = true; // frees up the block
+            waypointToPlaceOn.isPlacable = false;
+            oldTower.BaseWaypoint = waypointToPlaceOn;
+            oldTower.transform.position = waypointToPlaceOn.transform.position;
+
+            towerQueue.Enqueue(oldTower);
+        }
     }
 }
