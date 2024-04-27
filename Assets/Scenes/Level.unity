@@ -2853,10 +2853,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbf3ed388e57e54785586d1b4cf95dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBetweenSpawns: 5
+  spawninterval: 1
+  dealyBeforeSpwaning: 2
   enemyPrefab: {fileID: 114941686308246830, guid: 04f81ff9814844ccfa08226f8d46a3f4, type: 3}
   enemyParentTransform: {fileID: 1736128892}
   nEnemiesDestroyedText: {fileID: 1629246494}
+  enemies:
+  - {fileID: 11400000, guid: dd81979ee76dce24c825a60acc392400, type: 2}
 --- !u!1001 &361875369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3223,7 +3226,7 @@ GameObject:
   - component: {fileID: 450996142}
   - component: {fileID: 450996143}
   m_Layer: 0
-  m_Name: Tower Factory
+  m_Name: Tower Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3256,8 +3259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerLimit: 7
-  towerPrefab: {fileID: 7663532559918556912, guid: 349c8aa262cb84b4c99e784f18932b57, type: 3}
-  towerParentTransform: {fileID: 450996142}
+  towerPrefab: {fileID: 7885888864930144080, guid: 349c8aa262cb84b4c99e784f18932b57, type: 3}
+  spawnerTransform: {fileID: 450996142}
 --- !u!1001 &454708823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5892,7 +5895,7 @@ MonoBehaviour:
   exploredFrom: {fileID: 0}
   wayPointMeshRenderer: {fileID: 0}
   placableColor: {r: 0, g: 0, b: 0, a: 0}
-  impassableColor: {r: 0, g: 0, b: 0, a: 0}
+  unplacableColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &863031616 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4135240793724244, guid: 700ff3467e6f35c4d9307b685e8746d1, type: 3}
@@ -6661,6 +6664,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &982068425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 982068427}
+  - component: {fileID: 982068426}
+  m_Layer: 0
+  m_Name: Flyweight Factory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &982068426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982068425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa05ed5dddab2844b44c29ed238a9e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCapacity: 10
+  maxPoolSize: 100
+--- !u!4 &982068427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982068425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &992710052
 PrefabInstance:

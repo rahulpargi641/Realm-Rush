@@ -9,9 +9,9 @@ public class WayPoint : MonoBehaviour
 
     [SerializeField] MeshRenderer wayPointMeshRenderer;
     [SerializeField] Color placableColor;
-    [SerializeField] Color impassableColor;
+    [SerializeField] Color unplacableColor;
 
-    Color originalColor;
+    private Color originalColor;
 
     const int gridSize = 10; // we don't wanna individual block size
 
@@ -39,7 +39,7 @@ public class WayPoint : MonoBehaviour
         {
             if (isPlacable)
             {
-                FindObjectOfType<TowerFactory>().AddTower(this);
+                FindObjectOfType<TowerSpawner>().AddTower(this);
 
                 Debug.Log("Tower Base Coordinate" + gameObject.name);
             }
@@ -63,7 +63,7 @@ public class WayPoint : MonoBehaviour
         if (isPlacable)
             SetMeshColor(placableColor);
         else
-            SetMeshColor(impassableColor);
+            SetMeshColor(unplacableColor);
     }
 
     public void SetMeshColor(Color color)

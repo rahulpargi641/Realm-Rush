@@ -3,8 +3,9 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     // Parameters of each tower
+    [SerializeField] int attackRange = 50;
+
     [SerializeField] Transform towerGunTransform;
-    [SerializeField] float attackRange = 50f;
     [SerializeField] ParticleSystem projectileParticle;
 
     public WayPoint baseWaypoint;  // What the tower is standing on 
@@ -18,7 +19,7 @@ public class Tower : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         UpdateTargetEnemy();
         if (targetEnemy)
@@ -75,7 +76,7 @@ public class Tower : MonoBehaviour
         return closestEnemy;
     }
 
-    void FireAtEnemyIfInAttackRange()
+    private void FireAtEnemyIfInAttackRange()
     {
         float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, gameObject.transform.position);
         if (distanceToEnemy <= attackRange)

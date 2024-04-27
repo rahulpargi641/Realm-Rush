@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameOverPresenter : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
     [SerializeField] Button startButton;
     [SerializeField] Button quitButton;
