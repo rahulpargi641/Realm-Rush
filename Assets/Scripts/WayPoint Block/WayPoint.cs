@@ -8,6 +8,14 @@ public class WayPoint : MonoBehaviour
     public bool isPlacable = true;
     public WayPoint exploredFrom;
 
+    public int GridSize { get => gridSize; }
+    public Vector2Int GridCoordinate
+    {
+         get => new Vector2Int(
+             Mathf.RoundToInt(transform.position.x / gridSize),
+             Mathf.RoundToInt(transform.position.z / gridSize)); 
+    }
+
     [SerializeField] MeshRenderer wayPointMeshRenderer;
     [SerializeField] Color placableColor;
     [SerializeField] Color unplacableColor;
@@ -21,18 +29,7 @@ public class WayPoint : MonoBehaviour
         originalColor = wayPointMeshRenderer.material.color;
     }
 
-    public int GetGridSize()
-    {
-        return gridSize;
-    }
-
-    public Vector2Int GetGridCoordinate()
-    {
-        return new Vector2Int(
-            Mathf.RoundToInt(transform.position.x / gridSize),
-            Mathf.RoundToInt(transform.position.z / gridSize));
-
-    }
+   
 
     private void OnMouseOver()
     {
@@ -40,12 +37,11 @@ public class WayPoint : MonoBehaviour
         {
             if (isPlacable)
             {
-                FindObjectOfType<TowerSpawner>().AddTower(this);
-
+                TowerSpawnManager.Instance.AddTower(this);
                 Debug.Log("Tower Base Coordinate" + gameObject.name);
             }
             else
-                print("Can't place it here");
+            { print("Can't place it here"); }
         }
     }
 

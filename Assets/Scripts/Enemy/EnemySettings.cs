@@ -5,14 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Flyweight/Enemy Settings")]
 public class EnemySettings : FlyweightSettings
 {
-    public int maxHealth = 17;
+    public int maxHealth = 25;
     public int destructionPoints = 1;
     public float despawnDelay = 5f;
     //public float speed = 10f;
 
     private void OnEnable()
     {
-        //StartCoroutine(DeSpawnAfterDelay(settings.despawnDelay));
     }
 
     public override Flyweight Create()

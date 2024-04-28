@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Generic;
 
 namespace Assets.Scripts.Defense_Tower
 {
-    public class TowerSpawner : MonoBehaviour
+    public class TowerSpawnManager : MonoSingletonGeneric<TowerSpawnManager>
     {
         [SerializeField] TowerFactory towerFactory;
         [SerializeField] int towerLimit = 5;

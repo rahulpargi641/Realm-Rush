@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   prefab: {fileID: 1289942997295908, guid: 04f81ff9814844ccfa08226f8d46a3f4, type: 3}
+  maxHealth: 10
+  destructionPoints: 1
   despawnDelay: 5

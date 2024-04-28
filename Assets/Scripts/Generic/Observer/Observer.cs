@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Scripts.Generic.Observer
+namespace Assets.Scripts.Generic
 {
     [Serializable]
     public class Observer<T>

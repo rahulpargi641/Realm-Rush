@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Assets.Scripts.Defense_Tower;
+using System.Collections.Generic;
 
 public class Tower : MonoBehaviour, IDefenseUnit
 {
@@ -21,15 +22,13 @@ public class Tower : MonoBehaviour, IDefenseUnit
     private void Update()
     {
         UpdateTargetEnemy();
-        ProcessShooting();
+        HandleShooting();
     }
 
-    private void ProcessShooting()
+    private void HandleShooting()
     {
         if (targetEnemy)
-        {
-            ShootAtEnemyIfInAttackRange();
-        }
+        { ShootAtEnemyIfInAttackRange(); }
         else
         {
             towerGunTransform = initialTowerGunTransform;
@@ -39,8 +38,9 @@ public class Tower : MonoBehaviour, IDefenseUnit
 
     private void UpdateTargetEnemy()
     {
-        var enemies = FindObjectsOfType<Enemy>();
-        if (enemies.Length == 0)
+        //var enemies = FindObjectsOfType<Enemy>();
+        var enemies = EnemySpawneManager.Instance.Enemies;
+        if (enemies.Count == 0)
         {
             targetEnemy = null; // No enemies, so set targetEnemy to null
             return;
@@ -48,22 +48,17 @@ public class Tower : MonoBehaviour, IDefenseUnit
         SetTargetEnemy(enemies);
     }
 
-    private void SetTargetEnemy(Enemy[] enemies)
+    private void SetTargetEnemy(List<Enemy> enemies)
     {
         Transform closestEnemy = null; // Initialize to null
 
         foreach (Enemy testEnemy in enemies)
         {
             if (closestEnemy == null)
-            {
                 closestEnemy = testEnemy.transform;
-            }
             else
-            {
                 closestEnemy = SetCLosestEnemy(closestEnemy, testEnemy);
-            }
         }
-
         targetEnemy = closestEnemy;
     }
 
@@ -72,10 +67,7 @@ public class Tower : MonoBehaviour, IDefenseUnit
         float disToClosest = Vector3.Distance(transform.position, closestEnemy.position);
         float disToTest = Vector3.Distance(transform.position, testEnemy.transform.position);
 
-        if (disToTest < disToClosest)
-        {
-            closestEnemy = testEnemy.transform;
-        }
+        if (disToTest < disToClosest) closestEnemy = testEnemy.transform;
 
         return closestEnemy;
     }

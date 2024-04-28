@@ -2855,7 +2855,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawninterval: 1
   dealyBeforeSpwaning: 2
-  nEnemiesDestroyedText: {fileID: 1629246494}
   enemySettings:
   - {fileID: 11400000, guid: dd81979ee76dce24c825a60acc392400, type: 2}
 --- !u!1001 &361875369
@@ -4121,7 +4120,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1364836900482300, guid: eaf585f6d1c526346860421fbfbc3de4, type: 3}
       propertyPath: m_Name
-      value: Block_Enemy (22) Start Point
+      value: Block_Enemy (22) End Point
       objectReference: {fileID: 0}
     - target: {fileID: 1364836900482300, guid: eaf585f6d1c526346860421fbfbc3de4, type: 3}
       propertyPath: m_IsActive
@@ -6691,7 +6690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa05ed5dddab2844b44c29ed238a9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCapacity: 10
+  defaultCapacity: 20
   maxPoolSize: 100
 --- !u!4 &982068427
 Transform:
@@ -10994,7 +10993,7 @@ GameObject:
   - component: {fileID: 1629246495}
   - component: {fileID: 1629246494}
   m_Layer: 5
-  m_Name: Text_No of Enemies
+  m_Name: Text_No of Enemies_Destroyed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13365,6 +13364,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1972497155976961672, guid: 5882edacc0994614e9bb164378540562, type: 3}
   m_PrefabInstance: {fileID: 1916397713}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1917661143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1917661145}
+  - component: {fileID: 1917661144}
+  m_Layer: 0
+  m_Name: Score Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1917661144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917661143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d8443bf9bf8cd4091571ab009bc428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1629246494}
+--- !u!4 &1917661145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917661143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1918170412
 PrefabInstance:
   m_ObjectHideFlags: 0

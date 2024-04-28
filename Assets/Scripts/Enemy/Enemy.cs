@@ -1,5 +1,5 @@
 using UnityEngine;
-using Assets.Scripts.Generic.Observer;
+using Assets.Scripts.Generic;
 using Assets.Scripts.Enemy;
 
 public class Enemy : Flyweight
@@ -41,7 +41,7 @@ public class Enemy : Flyweight
         enemyVFX.PlayDeathVFX();
         AudioManager.Instance.PlaySound(SoundType.Destroyed);
 
-        FlyweightFactory.ReturnToPool(this);
+        EnemySpawneManager.Instance.ReturnToPool(this);
     }
 }
 

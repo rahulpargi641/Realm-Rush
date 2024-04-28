@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts.Generic.Singleton;
+using Assets.Scripts.Generic;
 
 public class FlyweightFactory : MonoSingletonGeneric<FlyweightFactory>
 {

@@ -64,7 +64,7 @@ public class PathFinder : MonoBehaviour
 
         foreach (WayPoint waypoint in waypoints)
         {
-            var gridPos = waypoint.GetGridCoordinate();
+            var gridPos = waypoint.GridCoordinate;
             if (grid.ContainsKey(gridPos))
             {
                 Debug.LogWarning("Skipping Overlapping Block" + waypoint);
@@ -105,21 +105,12 @@ public class PathFinder : MonoBehaviour
 
         foreach(Vector2Int direction in directions)
         {
-            Vector2Int neighbourCoordinate = currentsearchCenter.GetGridCoordinate() + direction;
+            Vector2Int neighbourCoordinate = currentsearchCenter.GridCoordinate + direction;
             if (grid.ContainsKey(neighbourCoordinate))
             {
                 QueueNewNeighbour(neighbourCoordinate);
             }
-
             //  print("print" + neighbourCoordinates);
-            /* try
-             {
-                 QueueNewNeighbours(neighbourCoordinates);
-             }
-             catch
-             {
-
-             }  */
         }
     }
 
@@ -128,7 +119,7 @@ public class PathFinder : MonoBehaviour
         WayPoint neighbour = grid[neighbourCoordinates];
         if(neighbour.isExplored || wayPointQueue.Contains(neighbour))
         {
-            // do nothing 
+            // do nothing
         }
         else
         {
