@@ -5,14 +5,15 @@ using Assets.Scripts.Enemy;
 public class Enemy : Flyweight
 {
     public static Observer<int> OnDestroyed = new Observer<int>(1);
-    private EnemySettings data => (EnemySettings)base.settings;
-    private EnemyVFX enemyVFX;
+    private new EnemySettings settings => (EnemySettings)base.settings;
+
+    private EnemyVfx vfxManager;
     private int currentHealth;
 
     private void Awake()
     {
-        enemyVFX = GetComponent<EnemyVFX>();
-        currentHealth = data.maxHealth;
+        vfxManager = GetComponent<EnemyVfx>();
+        currentHealth = settings.maxHealth;
     }
 
     private void OnParticleCollision(GameObject other)
@@ -30,7 +31,7 @@ public class Enemy : Flyweight
     private void ProcessHit()
     {
         currentHealth--;
-        enemyVFX.PlayHitVFX();
+        vfxManager.PlayHitVFX();
         AudioManager.Instance.PlaySound(SoundType.Shoot);
     }
 
@@ -38,10 +39,10 @@ public class Enemy : Flyweight
     {
         OnDestroyed.Invoke();
 
-        enemyVFX.PlayDeathVFX();
+        vfxManager.PlayDeathVFX();
         AudioManager.Instance.PlaySound(SoundType.Destroyed);
 
-        EnemySpawneManager.Instance.ReturnToPool(this);
+        EnemySpawnManager.Instance.ReturnToPool(this);
     }
 }
 

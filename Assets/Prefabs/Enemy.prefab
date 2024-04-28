@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546dc39033d19b24498f12160d08863b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalParticle: {fileID: 198537984209914932, guid: 5a6e9f2d87f540f44adb5d04c8a76a98, type: 3}
   movementPeriod: 0.7
   path: []
 --- !u!114 &114078703179129330
@@ -75,11 +74,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289942997295908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c583ccb0836eea4fa113f43f842f223, type: 3}
+  m_Script: {fileID: 11500000, guid: e5378e60f9934e74a9d058524c04a9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitParticlePrefab: {fileID: 6970084880260882323}
-  deathParticlePrefab: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0, type: 3}
+  goalParticle: {fileID: 198537984209914932, guid: 5a6e9f2d87f540f44adb5d04c8a76a98, type: 3}
 --- !u!1 &1646541640735296
 GameObject:
   m_ObjectHideFlags: 0

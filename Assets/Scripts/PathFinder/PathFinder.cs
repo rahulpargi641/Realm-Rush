@@ -5,13 +5,13 @@ public class PathFinder : MonoBehaviour
 {
     [SerializeField] WayPoint startWayPoint, endWayPoint;
 
-    Dictionary <Vector2, WayPoint> grid = new Dictionary<Vector2, WayPoint>();
-    Queue <WayPoint> wayPointQueue = new Queue<WayPoint>();
+    private Dictionary <Vector2, WayPoint> grid = new Dictionary<Vector2, WayPoint>();
+    private Queue <WayPoint> wayPointQueue = new Queue<WayPoint>();
 
-    bool isAlgoRunning = true;
+    private bool isAlgoRunning = true;
 
-    WayPoint currentsearchCenter; // The current search center grid coordinate 
-    List<WayPoint> path = new List<WayPoint>(); 
+    private WayPoint currentsearchCenter; // The current search center grid coordinate 
+    private List<WayPoint> path = new List<WayPoint>(); 
 
     Vector2Int[] directions =
     {
@@ -24,9 +24,8 @@ public class PathFinder : MonoBehaviour
     public List<WayPoint> GetPath()
     {
         if(path.Count == 0)
-        {
             CalculatePath();
-        }
+
         return path;
     }
 
@@ -65,14 +64,11 @@ public class PathFinder : MonoBehaviour
         foreach (WayPoint waypoint in waypoints)
         {
             var gridPos = waypoint.GridCoordinate;
+
             if (grid.ContainsKey(gridPos))
-            {
                 Debug.LogWarning("Skipping Overlapping Block" + waypoint);
-            }
             else
-            {
                 grid.Add(gridPos, waypoint);
-            }
         }
     }
 
@@ -110,7 +106,7 @@ public class PathFinder : MonoBehaviour
             {
                 QueueNewNeighbour(neighbourCoordinate);
             }
-            //  print("print" + neighbourCoordinates);
+            // print("print" + neighbourCoordinates);
         }
     }
 

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Generic;
 
-public class EnemySpawneManager : MonoSingletonGeneric<EnemySpawneManager>
+public class EnemySpawnManager : MonoSingletonGeneric<EnemySpawnManager>
 {
     public List<Enemy> Enemies => enemies;
+
+    [SerializeField] List<EnemySettings> enemySettings;
 
     [Range(0.1f, 120f)]
     [SerializeField] float spawninterval = 1f;
     [SerializeField] float dealyBeforeSpwaning = 2f;
-
-    [SerializeField] List<EnemySettings> enemySettings;
 
     private List<Enemy> enemies = new List<Enemy>();
 

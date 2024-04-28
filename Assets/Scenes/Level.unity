@@ -2853,10 +2853,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbf3ed388e57e54785586d1b4cf95dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawninterval: 1
-  dealyBeforeSpwaning: 2
   enemySettings:
   - {fileID: 11400000, guid: dd81979ee76dce24c825a60acc392400, type: 2}
+  spawninterval: 1
+  dealyBeforeSpwaning: 2
 --- !u!1001 &361875369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6077,6 +6077,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1972497155976961672, guid: 5882edacc0994614e9bb164378540562, type: 3}
   m_PrefabInstance: {fileID: 890145474}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &894313502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 894313504}
+  - component: {fileID: 894313503}
+  m_Layer: 0
+  m_Name: Vfx Spawn Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &894313503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894313502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c39c25f1a487dc4883b7bf2d808984c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyVFXSettings:
+  - {fileID: 11400000, guid: 30271176d1080784faa37ac4da5a2ad9, type: 2}
+--- !u!4 &894313504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894313502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &905764992
 PrefabInstance:
   m_ObjectHideFlags: 0

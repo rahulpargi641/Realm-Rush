@@ -6,10 +6,15 @@ namespace Assets.Scripts.Enemy
 {
     public class EnemyMovement : MonoBehaviour
     {
-        [SerializeField] ParticleSystem goalParticle;
         [SerializeField] float movementPeriod = 1;
-
         [SerializeField] List<WayPoint> path; // todo remove serializefield
+
+        private EnemyVfx enemyVFX;
+
+        private void Awake()
+        {
+            enemyVFX = GetComponent<EnemyVfx>();
+        }
 
         // Start is called before the first frame update
         void Start()
@@ -21,6 +26,7 @@ namespace Assets.Scripts.Enemy
         {
             PathFinder pathFinder = FindObjectOfType<PathFinder>();
             path = pathFinder.GetPath();
+
             StartCoroutine(FollowPath(path));
         }
 
@@ -34,17 +40,7 @@ namespace Assets.Scripts.Enemy
                 yield return new WaitForSeconds(movementPeriod);
             }
             //print("End Patrol");
-            SelftDestruct();
-        }
-
-        private void SelftDestruct()
-        {
-            var deathVfx = Instantiate(goalParticle, transform.position + new Vector3(0f, 15f, 0f), Quaternion.identity); // Object pooling
-            deathVfx.Play();
-            float destroyPlay = deathVfx.main.duration;
-            Destroy(deathVfx.gameObject, destroyPlay); // object pooling
-
-            Destroy(gameObject);
+            enemyVFX?.PlayGoalReachedVFX();
         }
     }
 }

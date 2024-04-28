@@ -9,5 +9,5 @@ public class Flyweight : MonoBehaviour
 
 public enum FlyweightType
 {
-    EnemyShip, DefnseTower, HitVFX, DeathVFX
+    EnemyShip, DefenseTower, HitVFX, DeathVFX
 }

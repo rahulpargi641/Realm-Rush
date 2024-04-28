@@ -39,7 +39,7 @@ public class Tower : MonoBehaviour, IDefenseUnit
     private void UpdateTargetEnemy()
     {
         //var enemies = FindObjectsOfType<Enemy>();
-        var enemies = EnemySpawneManager.Instance.Enemies;
+        var enemies = EnemySpawnManager.Instance.Enemies;  
         if (enemies.Count == 0)
         {
             targetEnemy = null; // No enemies, so set targetEnemy to null
