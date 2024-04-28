@@ -1,21 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Generic.Observer;
+using Assets.Scripts.Enemy;
 
 public class Enemy : Flyweight
 {
-    new EnemySettings settings => (EnemySettings) base.settings;
+    public static Observer<int> OnDestroyed = new Observer<int>(1);
+    private EnemySettings data => (EnemySettings)base.settings;
+    private EnemyVFX enemyVFX;
+    private int currentHealth;
 
-    void OnEnable()
+    private void Awake()
     {
-        //StartCoroutine(DeSpawnAfterDelay(settings.despawnDelay));
+        enemyVFX = GetComponent<EnemyVFX>();
+        currentHealth = data.maxHealth;
     }
 
-
-
-    IEnumerator DeSpawnAfterDelay(float delay)
+    private void OnParticleCollision(GameObject other)
     {
-        yield return new WaitForSeconds(delay);
+        ProcessEnemyHit();
+    }
+
+    private void ProcessEnemyHit()
+    {
+        ProcessHit();
+
+        if (currentHealth <= 0) ProcessDestruction();
+    }
+
+    private void ProcessHit()
+    {
+        currentHealth--;
+        enemyVFX.PlayHitVFX();
+        AudioManager.Instance.PlaySound(SoundType.Shoot);
+    }
+
+    private void ProcessDestruction()
+    {
+        OnDestroyed.Invoke();
+
+        enemyVFX.PlayDeathVFX();
+        AudioManager.Instance.PlaySound(SoundType.Destroyed);
+
         FlyweightFactory.ReturnToPool(this);
     }
 }
+
+

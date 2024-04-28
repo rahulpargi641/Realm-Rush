@@ -1172,7 +1172,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &189178898
 PrefabInstance:
@@ -2855,10 +2855,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawninterval: 1
   dealyBeforeSpwaning: 2
-  enemyPrefab: {fileID: 114941686308246830, guid: 04f81ff9814844ccfa08226f8d46a3f4, type: 3}
-  enemyParentTransform: {fileID: 1736128892}
   nEnemiesDestroyedText: {fileID: 1629246494}
-  enemies:
+  enemySettings:
   - {fileID: 11400000, guid: dd81979ee76dce24c825a60acc392400, type: 2}
 --- !u!1001 &361875369
 PrefabInstance:
@@ -3244,7 +3242,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &450996143
 MonoBehaviour:
@@ -3258,9 +3256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56da1666f59cfd54c8eda00ba4183889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerFactory: {fileID: 11400000, guid: 20d83d503c598fe4ba9a66f27bc0963f, type: 2}
   towerLimit: 7
-  towerPrefab: {fileID: 7885888864930144080, guid: 349c8aa262cb84b4c99e784f18932b57, type: 3}
-  spawnerTransform: {fileID: 450996142}
 --- !u!1001 &454708823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6708,7 +6705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &992710052
 PrefabInstance:
@@ -8485,7 +8482,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1308946075 stripped
 Transform:
@@ -9005,7 +9002,7 @@ RectTransform:
   - {fileID: 1629246493}
   - {fileID: 519813471}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11809,36 +11806,6 @@ Transform:
   m_Father: {fileID: 505864692}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1736128890
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1736128892}
-  m_Layer: 0
-  m_Name: Enemy Parent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1736128892
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736128890}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1738859087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12557,7 +12524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1688461580437026366, guid: 65d700a632f51ec45a5f0715f9c0676a, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1688461580437026366, guid: 65d700a632f51ec45a5f0715f9c0676a, type: 3}
       propertyPath: m_LocalPosition.x

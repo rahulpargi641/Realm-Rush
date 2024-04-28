@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6429b22950a2e44448fda5403d5fb652, type: 3}
   m_Name: Tower Factory
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  data: {fileID: 0}
+  prefab: {fileID: 7663532559918556911, guid: 349c8aa262cb84b4c99e784f18932b57, type: 3}
+  data: {fileID: 11400000, guid: e8f269c9096bbae4b833369953206a1b, type: 2}

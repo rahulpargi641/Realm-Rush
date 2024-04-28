@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Assets.Scripts.Player;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,12 +23,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerHealth.onPlayerDeath += GameOver;
+        PlayerHealth.OnPlayerDeath += GameOver;
     }
 
     private void OnDestroy()
     {
-        PlayerHealth.onPlayerDeath -= GameOver;
+        PlayerHealth.OnPlayerDeath -= GameOver;
     }
 
     private void Update()

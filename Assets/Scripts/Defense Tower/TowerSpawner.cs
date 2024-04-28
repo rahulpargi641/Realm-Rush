@@ -8,7 +8,7 @@ namespace Assets.Scripts.Defense_Tower
         [SerializeField] TowerFactory towerFactory;
         [SerializeField] int towerLimit = 5;
 
-        Queue<Tower> towerQueue = new Queue<Tower>();
+        private Queue<Tower> towerQueue = new Queue<Tower>();
 
         public void AddTower(WayPoint waypointToPlaceOn)
         {

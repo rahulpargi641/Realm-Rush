@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Generic.Singleton;
 
 public class AudioManager : MonoSingletonGeneric<AudioManager>
 {

@@ -1,12 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 [CreateAssetMenu(menuName = "Flyweight/Enemy Settings")]
 public class EnemySettings : FlyweightSettings
 {
+    public int maxHealth = 17;
+    public int destructionPoints = 1;
     public float despawnDelay = 5f;
     //public float speed = 10f;
+
+    private void OnEnable()
+    {
+        //StartCoroutine(DeSpawnAfterDelay(settings.despawnDelay));
+    }
 
     public override Flyweight Create()
     {
@@ -19,5 +26,14 @@ public class EnemySettings : FlyweightSettings
 
         return enemy;
     }
+
+    IEnumerator DeSpawnAfterDelay(float delay) // to do : Remove 
+    {
+        yield return new WaitForSeconds(delay);
+        //FlyweightFactory.ReturnToPool(this);
+    }
 }
+
+
+
 
