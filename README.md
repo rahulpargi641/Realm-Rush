@@ -26,26 +26,54 @@
    
 ### Implementation and Game Design
 #### Implementation
-    - PathFinder: Responsible for finding the shortest path on the grid using the breadth-first search algorithm 
-                  implemented using data sturctures like dictionary and a queue.
+    Design Patterns Used:
     
-    - TowerFactory: Responsible for limiting the instantiation of towers to a maximum of 7 and reusing already 
-                  spawned towers for performance using the queue.
-                  
-    - Tower: Responsible for finding the nearest enemy and targeting them. After destroying the targeted enemy, 
-                  it selects the next nearest one.
-             
-    - EnemySpawner: Spawns enemies at fixed intervals.
-    
-    - EnemyMovement: Obtains the shortest path from the PathFinder and follows it.
-    
-    - EnemyDamage: Manages hit processing and destruction of enemies.
-    
-    - GameManager: Responsible for managing game states, such as running, pausing, or activating the game over 
-                   screen if the player is defeated.
-                   
-    - Cube Editor: An editor script for placing grid blocks (waypoints) only at integer coordinates, crucial for 
-                   pathfinding, as it relies on integer coordinates.
+    Observer Pattern: 
+        - Implemented to handle events and notifications in a decoupled manner. The Observer<T> class allows
+          subscribing to events and invoking callbacks when certain actions occur. 
+        - For example, Enemy.OnDestroyed event uses this pattern to notify the ScoreManager to update the score.
+
+    Flyweight Factory Pattern with Object Pooling: 
+        - Used to efficiently manage and reuse game objects, especially particles and enemies. 
+        - The FlyweightFactory class manages pools of objects such as enemies and VFX, ensuring they are 
+          created and destroyed as needed without incurring performance overhead.
+          
+    Generic Singleton:
+        - Used to ensure only one instance of certain classes exists throughout the application. 
+        - Classes like MonoSingletonGeneric<T> and MonoSingletonGeneric<VfxSpawnManager> are examples
+          where this pattern is implemented.
+          
+    Scriptable Objects: 
+       - Leveraged to store and manage data in a flexible and modular way. Scriptable objects like TowerData,
+         EnemySettings, and VfxSettings allow easy configuration and customization of game entities without
+         modifying code.
+
+    Key Classes and Components:
+
+    Tower: Represents a defense tower in the game. It utilizes the IDefenseUnit interface and is instantiated
+    using a TowerFactory, which is a subclass of DenfenseUnitFactory. Towers shoot at enemies within their 
+    attack range and are placed on waypoints using the TowerSpawnManager.
+
+    Enemy: Represents an enemy in the game. It extends the Flyweight class and is pooled and managed by the
+    EnemySpawnManager. Enemies move along predefined paths using the EnemyMovement component and trigger VFX
+    and score updates upon destruction.
+
+    VFX: Managed using the flyweight pattern and pooled by the VfxSpawnManager. VFX are instantiated, play 
+    their effects, and then returned to the pool for reuse, improving performance and memory usage.
+
+    PathFinder: Implements pathfinding using a breadth-first search algorithm to find paths between waypoints.
+    It calculates paths dynamically and is used by enemies to navigate towards their targets.
+
+    WayPoint: Represents a grid-based waypoint used for tower and enemy placement as well as pathfinding. 
+    It handles mouse input for tower placement and changes color based on placability.
+
+    GameManager: Controls game flow, including pausing, quitting, and transitioning to the game over scene 
+    upon player death.
+
+    MainMenu: Manages the main menu UI and handles button clicks for starting the game, showing instructions,
+    and quitting.
+
+    ScoreManager: Updates and displays the player's score based on enemy destruction events.
 
  
  #### Game Design
@@ -55,8 +83,9 @@
        
 #### Focus
     - Learn custom pathfinding for an analog grid-based world using the BFS algorithm.
-    - Get familiar with using data structures like dictionaries and lists.
-    - Become familiar with using a Particle System.
+    - Gain familiarity with design patterns like Flyweight Factory with object pooling, Observer, and Singleton.
+    - Get acquainted with using data structures like queues, dictionaries and lists.
+    - Learn how to use a Particle System.
     
 ### Gameplay Demonstration
     - For a visual demonstration of the gameplay, watch video on YouTube:
